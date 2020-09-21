@@ -33,7 +33,7 @@ const App = () => {
   return (
     <ThemeProvider>
       <Flex alignItems="center" justifyContent="center" flexGrow="1">
-        <Flex width="100vmin" height="100vmin" alignItems="center">
+        <Flex width="100vmin" height="100vmin" alignItems="center" justifyContent="center">
           <Grid gridTemplateColumns={times(columns, () => '1fr').join(' ')} gridGap="5vmin" margin="10vmin">
             {map(symbols, (symbol, index) => (
               <Image
