@@ -6,7 +6,7 @@ import { useDeviceVM } from '../vms/device';
 
 const getShuffledSymbols = (count) => shuffle(times(count, identity));
 
-const App = () => {
+const Activity1 = () => {
   useDeviceVM();
 
   const count = 4;
@@ -51,4 +51,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Activity1;

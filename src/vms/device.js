@@ -7,17 +7,9 @@
  */
 
 import React from 'react';
-import { useCookie } from 'react-use';
-import { random } from 'lodash';
 
 import api from '../api';
-
-const useDeviceId = () => {
-  const [_deviceId, updateDeviceId] = useCookie('device-id');
-  const deviceId = _deviceId || random(10000, 99999);
-  if (!_deviceId) updateDeviceId(deviceId);
-  return deviceId;
-};
+import useDeviceId from '../utils/useDeviceId';
 
 const useCreateDeviceVM = () => {
   const deviceId = useDeviceId();
