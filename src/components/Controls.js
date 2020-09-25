@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Button, Heading } from '@chakra-ui/core';
 import { isEmpty, map } from 'lodash';
 
+import api from '../api';
 import { useDevicesVM } from '../vms/devices';
 import Table from './Table';
 
@@ -30,8 +31,8 @@ const Controls = () => {
               <Table.Cell>{device.id}</Table.Cell>
               <Table.Cell>{device.activity || 'unknown'}</Table.Cell>
               <Table.Cell pr={0}>
-                <Button mr={2}>Identify</Button>
-                <Button>Refresh</Button>
+                <Button onClick={() => api.incrementIdentifyCount(device.id)} mr={2}>Identify</Button>
+                <Button onClick={() => api.incrementRefreshCount(device.id)}>Refresh</Button>
               </Table.Cell>
             </Table.Row>
           ))}

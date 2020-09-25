@@ -2,12 +2,12 @@ import React from 'react';
 import { Flex, Image, Grid } from '@chakra-ui/core';
 import { identity, map, shuffle, times } from 'lodash';
 
-import { useDeviceVM } from '../vms/device';
+import FlashOnIdentify from './FlashOnIdentify';
 
 const getShuffledSymbols = (count) => shuffle(times(count, identity));
 
 const Activity1 = () => {
-  useDeviceVM();
+  // const { device } = useDeviceVM();
 
   const count = 4;
   const columns = Math.ceil(Math.sqrt(count));
@@ -47,6 +47,7 @@ const Activity1 = () => {
           ))}
         </Grid>
       </Flex>
+      <FlashOnIdentify />
     </Flex>
   );
 };
