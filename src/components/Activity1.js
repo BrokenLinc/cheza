@@ -2,8 +2,6 @@ import React from 'react';
 import { Flex, Image, Grid } from '@chakra-ui/core';
 import { identity, map, shuffle, times } from 'lodash';
 
-import FlashOnIdentify from './FlashOnIdentify';
-
 const getShuffledSymbols = (count) => shuffle(times(count, identity));
 
 const Activity1 = (props) => {
@@ -45,7 +43,6 @@ const Activity1 = (props) => {
           ))}
         </Grid>
       </Flex>
-      <FlashOnIdentify />
     </Flex>
   );
 };

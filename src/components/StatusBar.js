@@ -9,7 +9,7 @@ const StatusBar = () => {
 
   return (
     <Box position="absolute" right={0} bottom={0} color="gray.500" p={2} fontSize={10}>
-      Device {device.id}, v1.0.0
+      Device {device.id}, v1.1.0
     </Box>
   );
 };
