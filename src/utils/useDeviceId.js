@@ -5,7 +5,7 @@ const useDeviceId = () => {
   const [_deviceId, updateDeviceId] = useCookie('device-id');
   const deviceId = _deviceId || random(10000, 99999);
   if (!_deviceId) updateDeviceId(deviceId);
-  return deviceId;
+  return String(deviceId);
 };
 
 export default useDeviceId;
