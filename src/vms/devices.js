@@ -1,6 +1,8 @@
 import React from 'react';
+import { map } from 'lodash';
 
 import api from '../api';
+import sanitizeDeviceData from '../utils/sanitizeDeviceData';
 
 const useCreateDevicesVM = () => {
   const devices = api.useDevicesData();
@@ -14,7 +16,7 @@ const useCreateDevicesVM = () => {
   const vm = {
     loaded: devices.loaded,
     error: devices.error,
-    devices: devices.data,
+    devices: map(devices.data, sanitizeDeviceData),
   };
 
   // console.log(vm);

@@ -6,17 +6,11 @@ import FlashOnIdentify from './FlashOnIdentify';
 
 const getShuffledSymbols = (count) => shuffle(times(count, identity));
 
-const Activity1 = () => {
-  // const { device } = useDeviceVM();
-
-  const count = 4;
+const Activity1 = (props) => {
+  const { count = 4 } = props;
   const columns = Math.ceil(Math.sqrt(count));
   const [symbols, setSymbols] = React.useState(getShuffledSymbols(count));
   const [tapped, setTapped] = React.useState(0);
-  const reset = () => {
-    setSymbols(getShuffledSymbols(count));
-    setTapped(0);
-  };
   const handleImageMouseDown = (index) => {
     // Force source order this this line:
     if (symbols[index] !== tapped) return;
@@ -24,6 +18,10 @@ const Activity1 = () => {
     setTapped((n) => n + 1);
   };
   React.useEffect(() => {
+    const reset = () => {
+      setSymbols(getShuffledSymbols(count));
+      setTapped(0);
+    };
     let resetTimeout;
     if (tapped >= count) {
       resetTimeout = setTimeout(reset, 1000);
@@ -31,7 +29,7 @@ const Activity1 = () => {
     return () => {
       clearTimeout(resetTimeout);
     };
-  }, [tapped]);
+  }, [count, setSymbols, setTapped, tapped]);
   return (
     <Flex alignItems="center" justifyContent="center" flexGrow="1">
       <Flex width="100vmin" height="100vmin" alignItems="center" justifyContent="center">

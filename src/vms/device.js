@@ -9,6 +9,7 @@
 import React from 'react';
 
 import api from '../api';
+import sanitizeDeviceData from '../utils/sanitizeDeviceData';
 import useDeviceId from '../utils/useDeviceId';
 
 const useCreateDeviceVM = () => {
@@ -32,7 +33,7 @@ const useCreateDeviceVM = () => {
     loaded,
     error,
     deviceId,
-    device: device.data,
+    device: sanitizeDeviceData(device.data),
   };
 
   return vm;
