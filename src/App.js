@@ -16,7 +16,7 @@ const App = () => (
       <DeviceVMProvider>
         <Router />
         <Box position="absolute" right={0} bottom={0} color="gray.500" p={2} fontSize={10}>
-          v0.0.1
+          v0.0.2
         </Box>
       </DeviceVMProvider>
     </DevicesVMProvider>
